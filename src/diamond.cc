@@ -1,24 +1,24 @@
-/* Draws diamond with given side to the stdout.
+/* Draws diamond with given width to the stdout.
  *
  * @author Nikolai Kostromitin
  */
 
 #include <iostream>
 
-void draw_diamond(unsigned side);
+void draw_diamond(unsigned width);
 
 
 int main()
 {
-    unsigned side;
-    std::cin >> side;
-    if (side % 2 == 0)
-        ++side;
+    unsigned width;
+    std::cin >> width;
+    if (width % 2 == 0)
+        ++width;
 
-    draw_diamond(side);
+    draw_diamond(width);
 }
 
-// side == 9
+// width == 9
 //
 //     *
 //    * *
@@ -30,15 +30,15 @@ int main()
 //    * *
 //     *
 
-void draw_diamond(unsigned side)
+void draw_diamond(unsigned width)
 {
-    const unsigned middle = side / 2;
+    const unsigned middle = width / 2;
     const char star = '*';
     const char blank = ' ';
 
-    for (unsigned i = 0; i < side; ++i) {
-        for (unsigned j = 0; j < side; ++j) {
-            if (i + j == middle || i + j == side - 1 + middle)
+    for (unsigned i = 0; i < width; ++i) {
+        for (unsigned j = 0; j < width; ++j) {
+            if (i + j == middle || i + j == width - 1 + middle)
                 std::cout << star;
             else if (i + middle == j || i == j + middle)
                 std::cout << star;
