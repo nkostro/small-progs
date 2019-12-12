@@ -1,3 +1,8 @@
+/* Draws diamond with given side to the stdout.
+ *
+ * @author Nikolai Kostromitin
+ */
+
 #include <iostream>
 
 void draw_diamond(unsigned side);
