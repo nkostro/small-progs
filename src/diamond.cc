@@ -11,6 +11,7 @@ void draw_diamond(unsigned width);
 int main()
 {
     unsigned width;
+    std::cout << "Input diamond's width: ";
     std::cin >> width;
     if (width % 2 == 0)
         ++width;
