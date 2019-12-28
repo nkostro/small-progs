@@ -18,6 +18,7 @@ int main()
     const int size = 10;
     int a[size];
 
+    srand(time(NULL));
     fill(a, size, -100, 100);
 
     const int width = 5;
@@ -39,7 +40,6 @@ int main()
 
 void fill(int ar[], int size, int a, int b)
 {
-    srand(time(NULL));
     for (int i = 0; i < size; ++i)
         ar[i] = rand() % (b - a + 1) + a;
 }
