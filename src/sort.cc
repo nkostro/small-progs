@@ -9,9 +9,9 @@
 #include <cstdlib>
 #include <ctime>
 
-void fill(int ar[], int size, int a, int b);
+#include "utils.h"
+
 void sort(int ar[], int size, bool desc = false);
-void print(const int a[], int size, int width);
 
 int main()
 {
@@ -37,14 +37,6 @@ int main()
     print(a, size, width);
     std::cout << std::endl;
 }
-
-void fill(int ar[], int size, int a, int b)
-{
-    for (int i = 0; i < size; ++i)
-        ar[i] = rand() % (b - a + 1) + a;
-}
-
-void swap(int *a, int *b) { int t = *a; *a = *b; *b = t; }
 
 typedef bool (*cmp_t)(int, int);
 
@@ -72,10 +64,4 @@ void sort(int a[], int size, bool desc)
         sort(a, size, [] (int a, int b) { return a < b; });
     else
         sort(a, size, [] (int a, int b) { return a > b; });
-}
-
-void print(const int a[], int size, int w)
-{
-    for (int i = 0; i < size; ++i)
-        std::cout << std::setw(w) << a[i];
 }

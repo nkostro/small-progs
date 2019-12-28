@@ -7,9 +7,9 @@
 #include <iostream>
 #include <iomanip>
 
-void fill(int ar[], int size, int a, int b);
+#include "utils.h"
+
 void sort(int a[], int size);
-void print(const int a[], int size, int width);
 
 int main()
 {
@@ -31,14 +31,6 @@ int main()
     std::cout << std::endl;
 }
 
-void fill(int ar[], int size, int a, int b)
-{
-    for (int i = 0; i < size; ++i)
-        ar[i] = rand() % (b - a + 1) + a;
-}
-
-void swap(int *a, int *b) { int t = *a; *a = *b; *b = t; }
-
 void sort(int a[], int begin, int end)
 {
     for (int i = begin + 1; i < end; ++i)
@@ -55,10 +47,4 @@ void sort(int a[], int size)
     for (end = size - 1; a[end] >= 0; --end)
         ;
     sort(a, begin + 1, end);
-}
-
-void print(const int a[], int size, int w)
-{
-    for (int i = 0; i < size; ++i)
-        std::cout << std::setw(w) << a[i];
 }

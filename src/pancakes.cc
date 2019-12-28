@@ -6,12 +6,11 @@
 
 #include <iostream>
 #include <iomanip>
-#include <cstdlib>
 #include <ctime>
 
-void fill(int ar[], int size, int a, int b);
+#include "utils.h"
+
 void sort(int a[], int size);
-void print(const int a[], int size, int width);
 
 int main()
 {
@@ -33,12 +32,6 @@ int main()
     std::cout << std::endl;
 }
 
-void fill(int ar[], int size, int a, int b)
-{
-    for (int i = 0; i < size; ++i)
-        ar[i] = a + rand() % (b - a + 1);
-}
-
 int get_max_index(const int a[], int size)
 {
     int max = a[0];
@@ -53,8 +46,6 @@ int get_max_index(const int a[], int size)
     return max_idx;
 }
 
-void swap(int *a, int *b) { int t = *a; *a = *b; *b = t; }
-
 void sort(int a[], int size)
 {
     for (int i = 0; i < size; ++i) {
@@ -64,10 +55,4 @@ void sort(int a[], int size)
         for (int j = i, k = size-1; j < k; ++j, --k)
             swap(&a[j], &a[k]);
     }
-}
-
-void print(const int a[], int size, int w)
-{
-    for (int i = 0; i < size; ++i)
-        std::cout << std::setw(w) << a[i];
 }
