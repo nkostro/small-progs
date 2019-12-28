@@ -25,7 +25,7 @@ int main()
     print(a, size, width);
     std::cout << std::endl;
 
-    bool is_decreasing = true;
+    bool is_decreasing = false;
     if (is_decreasing)
         std::cout << "... sorting in decreasing order\n";
     else
@@ -50,10 +50,16 @@ typedef bool (*cmp_t)(int, int);
 
 void sort(int a[], int size, cmp_t cmp)
 {
-    for (int i = 0; i < size; ++i)
+    for (int i = 0; i < size; ++i) {
+        bool swapped = false;
         for (int j = 0; j < size - i - 1; ++j)
-            if (cmp(a[j], a[j+1]))
+            if (cmp(a[j], a[j+1])) {
                 swap(&a[j], &a[j+1]);
+                swapped = true;
+            }
+        if (!swapped)
+            return;
+    }
 }
 
 bool cmp_lt(int a, int b) { return a < b; }
