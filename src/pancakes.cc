@@ -1,5 +1,5 @@
 /* Weird pancakes' array sorting algorithm.
- * The only operation allowed with pancakes array is reverting order of any of array's segment.
+ * The only operation allowed with pancakes array is reverting order of pancakes starting from any index to the end of array.
  *
  * @author Nikolai Kostromitin
  */
