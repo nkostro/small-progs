@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Wpedantic -std=c++11 -g -Iinclude
 SOURCES = src
-EXE = ${SOURCES}/diamond $(SOURCES)/matrixes $(SOURCES)/sort $(SOURCES)/sort_segment $(SOURCES)/pancakes
+EXE = ${SOURCES}/diamond $(SOURCES)/matrixes $(SOURCES)/sort $(SOURCES)/sort_segment $(SOURCES)/pancakes ${SOURCES}/knight_path
 
 all: ${EXE}
 
