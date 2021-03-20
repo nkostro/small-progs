@@ -1,58 +1,89 @@
 /* Weird pancakes' array sorting algorithm.
- * The only operation allowed with pancakes array is reverting order of pancakes starting from any index to the end of array.
+ * The only operation allowed with array is reverting order of elements
+ * starting from any index to the end of array.
  *
  * @author Nikolai Kostromitin
  */
 
 #include <iostream>
-#include <iomanip>
+#include <cstdlib>
 #include <ctime>
 
-#include "utils.h"
+void initArray(int array[], int size, int beginValue, int endValue);
+void printArray(const int array[], int size);
+void pancakesSort(int pancakes[], int size);
 
-void sort(int a[], int size);
 
 int main()
 {
-    const int size = 10;
-    int pancakes_sizes[size];
-
+    setlocale(LC_ALL, "ru_RU");
     srand(time(NULL));
-    fill(pancakes_sizes, size, -100, 100);
 
-    const int width = 4;
+    const int size = 20;
+    int pancakes[size];
+
+    initArray(pancakes, size, 0, 100);
+
     std::cout << "Before sort: ";
-    print(pancakes_sizes, size, width);
-    std::cout << std::endl;
+    printArray(pancakes, size);
+    std::cout << '\n';
 
-    sort(pancakes_sizes, size);
+    pancakesSort(pancakes, size);
 
     std::cout << "After sort:  ";
-    print(pancakes_sizes, size, width);
-    std::cout << std::endl;
+    printArray(pancakes, size);
+    std::cout << '\n';
 }
 
-int get_max_index(const int a[], int size)
+void initArray(int array[], int size, int beginValue, int endValue)
 {
-    int max = a[0];
-    int max_idx = 0;
+    for (int i = 0; i < size; ++i)
+        array[i] = beginValue + rand() % (endValue - beginValue);
+}
 
+void printArray(const int array[], int size)
+{
+    if (size < 1)
+        return;
+
+    std::cout << array[0];
     for (int i = 1; i < size; ++i)
-        if (a[i] > max) {
-            max = a[i];
-            max_idx = i;
-        }
-
-    return max_idx;
+        std::cout << ' ' << array[i];
 }
 
-void sort(int a[], int size)
+int getIndexOfMax(const int array[], int startIndex, int endIndex)
 {
-    for (int i = 0; i < size; ++i) {
-        int max_idx = i + get_max_index(a+i, size-i);
-        for (int j = max_idx, k = size-1; j < k; ++j, --k)
-            swap(&a[j], &a[k]);
-        for (int j = i, k = size-1; j < k; ++j, --k)
-            swap(&a[j], &a[k]);
+    if (startIndex < 0 || endIndex < startIndex)
+        return -1;
+
+    int max = array[startIndex];
+    int index = startIndex;
+
+    for (int i = startIndex + 1; i < endIndex; ++i) {
+        if (array[i] > max) {
+            max = array[i];
+            index = i;
+        }
+    }
+
+    return index;
+}
+
+void reverseArray(int array[], int startIndex, int endIndex)
+{
+    for (int i = startIndex, j = endIndex - 1; i < j; ++i, --j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }
+
+void pancakesSort(int pancakes[], int size)
+{
+    for (int i = 0; i < size; ++i) {
+        int indexOfMax = getIndexOfMax(pancakes, i, size);
+        reverseArray(pancakes, indexOfMax, size);
+        reverseArray(pancakes, i, size);
+    }
+}
+
