@@ -69,12 +69,12 @@ int getIndexOfMax(const int array[], int startIndex, int endIndex)
     return index;
 }
 
-void reverseArray(int array[], int startIndex, int endIndex)
+void flipPancakes(int pancakes[], int startIndex, int endIndex)
 {
     for (int i = startIndex, j = endIndex - 1; i < j; ++i, --j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+        int temp = pancakes[i];
+        pancakes[i] = pancakes[j];
+        pancakes[j] = temp;
     }
 }
 
@@ -82,8 +82,8 @@ void pancakesSort(int pancakes[], int size)
 {
     for (int i = 0; i < size; ++i) {
         int indexOfMax = getIndexOfMax(pancakes, i, size);
-        reverseArray(pancakes, indexOfMax, size);
-        reverseArray(pancakes, i, size);
+        flipPancakes(pancakes, indexOfMax, size);
+        flipPancakes(pancakes, i, size);
     }
 }
 

@@ -1,6 +1,7 @@
 src/diamond
+src/knight_path
 src/matrixes
+src/pancakes
 src/sort
 src/sort_segment
-src/pancakes
 src/utils
