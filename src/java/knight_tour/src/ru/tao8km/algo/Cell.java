@@ -1,4 +1,4 @@
-package ru.yandex.emailbin.algo;
+package ru.tao8km.algo;
 
 class Cell {
     private final char letter;

@@ -5,7 +5,7 @@
  *
  * @author Nikolai Kostromitin
  */
-package ru.yandex.emailbin.algo;
+package ru.tao8km.algo;
 
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -109,7 +109,7 @@ public class KnightTourSolver {
 
     public static void main(String[] args) {
         if (args.length < 3)
-            throw new IllegalArgumentException("Usage: knight_tour side letter digit");
+            throw new IllegalArgumentException("Provide arguments: side start_letter start_digit");
         int side = Integer.parseInt(args[0]);
         char letter = args[1].charAt(0);
         int digit = Integer.parseInt(args[2]);

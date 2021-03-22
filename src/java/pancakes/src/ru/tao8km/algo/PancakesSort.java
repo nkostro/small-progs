@@ -4,7 +4,7 @@
  *
  * Imagine that these are pancakes of different diameters in an array.
  */
-package ru.yandex.emailbin.algo;
+package ru.tao8km.algo;
 
 import java.util.Arrays;
 import java.util.Random;
