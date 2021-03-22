@@ -1,10 +1,10 @@
-src/diamond
-src/knight_path
-src/matrixes
-src/pancakes
-src/sort
-src/sort_segment
-src/utils
+cpp/src/diamond
+cpp/src/knight_path
+cpp/src/matrixes
+cpp/src/pancakes
+cpp/src/sort
+cpp/src/sort_segment
+cpp/src/utils
 *.class
 *.jar
 tags

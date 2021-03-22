@@ -1,3 +1,8 @@
+/**
+ * Flood it game.
+ *
+ * @author Nikolai Kostromitin
+ */
 package ru.tao8km.game.flood_it;
 
 import java.util.Scanner;
